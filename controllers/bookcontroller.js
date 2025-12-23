@@ -32,9 +32,7 @@ const updateBook = async (req, res) => {
         author: req.body.author,
         price: req.body.price,
         description: req.body.description,
-    }
-    if (req.file) {
-        obj.image = req.file.filename;
+        image: req.file.filename
     }
     await Book.findByIdAndUpdate(id, obj);
     res.redirect("/");
