@@ -2,7 +2,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const bookRoutes = require("./routes/book");
 
-
 const db = require("./database/db");
 const app = express();
 db();
