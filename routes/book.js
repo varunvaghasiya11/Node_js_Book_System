@@ -1,11 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const bookController = require("../controllers/bookController");
+const upload = require("../middleware/multer");
 
 router.get("/", bookController.getAllBooks);
-router.post("/", bookController.addBook);
+router.post("/", upload.single("image"), bookController.addBook);
 router.get("/edit/:id", bookController.editBook);
-router.post("/update/:id", bookController.updateBook);
+router.post("/update/:id", upload.single("image"), bookController.updateBook);
 router.get("/delete/:id", bookController.deleteBook);
 router.get("/view/:id", bookController.viewBook);
 

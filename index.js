@@ -7,6 +7,7 @@ const app = express();
 db();
 
 app.use(express.static("public"));
+app.use("/uploads", express.static("uploads"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", bookRoutes);
 app.set("view engine", "ejs");
